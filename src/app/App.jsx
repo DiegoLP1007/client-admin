@@ -1,10 +1,13 @@
-export const App = () => {
+
+import { AuthPage } from "../features/auth/pages/AuthPage.jsx";
+ 
+function App() {
   return (
     <>
-      <h1>Hola mundo</h1>
-      <p> Soy la mera verdura del caldo</p>
+      <h1> Hola Mundo</h1>
+      <AuthPage />
     </>
   )
 }
-
+ 
 export default App;
