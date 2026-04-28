@@ -23,7 +23,7 @@ export const LoginForm = ({ onForgot }) => {
             navigate("/dashboard");
             toast.success("Bienvenido de nuevo");
         } else {
-            toast.error(res.error);
+            toast.error("Credenciales incorrectas o error de servidor");
         }
     };
 
