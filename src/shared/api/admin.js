@@ -34,6 +34,7 @@ export const updateTeam = async (id, data) => {
     });
 };
 
+
 export const deleteTeam = async (id) => {
     return await axiosAdmin.put(`/teams/${id}/deactivate`);
 };
