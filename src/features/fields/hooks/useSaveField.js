@@ -1,21 +1,21 @@
-import { useFieldsStore } from "../../store/adminStore.js";
+import { useFieldsStore } from "../../users/store/adminStore.js"
 
 export const useSaveField = () => {
-    //Recuperacion de funciones para el hook
+    // Recuperacion de funciones para el hook
     const createField = useFieldsStore((state) => state.createField);
     const updateField = useFieldsStore((state) => state.updateField);
 
     const saveField = async (data, fieldId = null) => {
-        const formData = new FormData();
 
+        const formData = new FormData();
         formData.append("fieldName", data.fieldName);
         formData.append("fieldType", data.fieldType);
         formData.append("capacity", data.capacity);
         formData.append("pricePerHour", data.pricePerHour);
-        formData.append("desciption", data.description);
+        formData.append("description", data.description);
 
         if (data.photo?.length > 0) {
-            formData.append("image", data.photo[0]);
+            formData.append("photo", data.photo[0]);
         }
 
         if (fieldId) {
@@ -23,14 +23,7 @@ export const useSaveField = () => {
         } else {
             await createField(formData);
         }
-    }
 
+    };
     return { saveField };
-
-    /*
-    const deleteField = useFieldsStore((state) => state.deleteField);
-    const getFields = useFieldsStore((state) => state.getFields);
-    const loading = useFieldsStore((state) => state.loading);
-    const error = useFieldsStore((state) => state.error);
-*/
-}
+};

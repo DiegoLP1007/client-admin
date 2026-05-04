@@ -72,6 +72,7 @@ export const useFieldsStore = create((set, get) => ({
         try {
             set({ loading: true, error: null });
             await confirmReservationRequest(id);
+            // Refrescar lista después de confirmar
             await get().getAllReservations();
             set({ loading: false });
         } catch (error) {
